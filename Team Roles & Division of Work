@@ -1,0 +1,52 @@
+## 👥 Team Roles & Division of Work
+
+<details open>
+<summary><b>👤 Member 1 — Dataset Preparation & AI Model Development</b> (Deadline: <code>Day 2</code>)</summary>
+<br>
+
+* **Primary Stack:** `Roboflow` • `OpenCV` • `Google Colab` • `Google Drive`
+* **Key Tasks:**
+  * Set up the Roboflow workspace and coordinate mobile court recordings with the team.
+  * Extract **150–250 frames** via OpenCV and annotate 3 target classes: `Player`, `Basketball`, and `Hoop`.
+  * Generate dataset versions, train the object detection model, and benchmark **Precision, Recall, and mAP**.
+  * Distribute the Model ID and class mappings to Member 2.
+* **Deliverables:** `notebooks/01_data_preparation.ipynb`, model evaluation metrics, dataset documentation.
+</details>
+
+<details open>
+<summary><b>👤 Member 2 — Object Detection & Player Tracking</b> (Deadline: <code>Day 5</code>)</summary>
+<br>
+
+* **Primary Stack:** `Roboflow Inference` • `ByteTrack` • `Supervision` • `OpenCV` • `Pandas`
+* **Key Tasks:**
+  * Integrate the trained Roboflow model into Python to detect players, balls, and hoops across video streams.
+  * Implement **ByteTrack** to maintain consistent player IDs across frames.
+  * Extract frame timestamps, per-frame player counts, and bounding-box coordinates.
+  * Build baseline shot detection logic and export structured CSVs.
+* **Deliverables:** `notebooks/02_object_detection.ipynb`, `notebooks/03_player_tracking.ipynb`, `src/detection.py`, `src/tracking.py`, `src/shot_detection.py`, `outputs/player_tracking.csv`, `outputs/occupancy.csv`.
+</details>
+
+<details open>
+<summary><b>👤 Member 3 — Camera Calibration & Business Analytics</b> (Deadline: <code>Day 5</code>)</summary>
+<br>
+
+* **Primary Stack:** `OpenCV` • `NumPy` • `Pandas` • `Matplotlib` • `Seaborn`
+* **Key Tasks:**
+  * Select court keypoints and compute a **Homography** matrix for perspective transformation.
+  * Project raw pixel coordinates onto a standardized 2D court plane divided into **6 analytical zones**.
+  * Compute average/peak player counts, zone dwell times, and hourly occupancy distributions.
+  * Generate high-resolution player movement heatmaps and statistical plots.
+* **Deliverables:** `notebooks/04_court_analytics.ipynb`, `src/calibration.py`, `src/occupancy.py`, `src/heatmap.py`, `outputs/heatmap.png`.
+</details>
+
+<details open>
+<summary><b>👤 Member 4 — Dashboard Development & Integration</b> (Deadline: <code>Day 6</code>)</summary>
+<br>
+
+* **Primary Stack:** `Streamlit` • `Pandas` • `Matplotlib` • `Seaborn` • `GitHub`
+* **Key Tasks:**
+  * Architect the Streamlit UI across 6 core views: **Overview**, **Player Detection & Tracking**, **Shot Analytics**, **Court Occupancy**, **Court-Zone Heatmap**, and **Reports**.
+  * Wire up KPI cards (current/max players, shooting %, occupancy rates) and interactive charts from Members 2 & 3's outputs.
+  * Lead end-to-end integration testing, final documentation, and presentation prep.
+* **Deliverables:** `dashboard/app.py`, `requirements.txt`, final `README.md`, demo screenshots & slide deck.
+</details>
